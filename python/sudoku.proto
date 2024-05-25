@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package sudoku;
+
+service Sudoku {
+    rpc GetSolution (Question) returns (Solution) {}
+}
+
+message Question {
+    repeated int32 board = 1;
+    string solverType = 2;
+}
+
+message Solution {
+    bool solved = 1;
+    repeated int32 board = 2;
+    double duration = 3;
+}
